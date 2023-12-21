@@ -3,7 +3,7 @@ import cronitor
 from django.core.management.base import BaseCommand
 from django.conf import settings
 
-from cronitor_config_decorator import discover_cronitor_tasks
+from cronitor_tools import discover_cronitor_tasks
 
 
 class Command(BaseCommand):
