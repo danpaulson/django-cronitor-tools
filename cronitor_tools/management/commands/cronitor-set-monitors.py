@@ -11,7 +11,7 @@ class Command(BaseCommand):
         cronitor_tasks = getattr(settings, 'CRONITOR_TASKS', [])
         cronitor_jobs = []
         for task_list in cronitor_tasks:
-            cronitor_jobs.append(discover_cronitor_tasks(task_list))
+            cronitor_jobs.extend(discover_cronitor_tasks(task_list))
         cronitor_job_defaults = getattr(settings, 'CRONITOR_JOB_DEFAULTS', {})
         cronitor_checks = getattr(settings, 'CRONITOR_CHECKS', [])
         cronitor_check_defaults = getattr(settings, 'CRONITOR_CHECK_DEFAULTS', {})
