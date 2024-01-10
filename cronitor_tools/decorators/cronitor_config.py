@@ -1,3 +1,6 @@
+from django.conf import settings
+
+
 def cronitor_config(name: str = None, key: str = None, schedule: str = None,
                     schedule_tolerance: int = None, group: str = None, notify: str = None):
     def decorator(func):
@@ -5,6 +8,9 @@ def cronitor_config(name: str = None, key: str = None, schedule: str = None,
         if name is not None:
             func._cronitor_config['name'] = name
         if key is not None:
+            key_prefix = getattr(settings, 'CRONITOR_KEY_PREFIX', None)
+            if key_prefix:
+                key = f'{key_prefix}_{key}'
             func._cronitor_config['key'] = key
         if schedule is not None:
             func._cronitor_config['schedule'] = schedule
