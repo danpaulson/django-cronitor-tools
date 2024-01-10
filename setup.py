@@ -6,7 +6,7 @@ setup(
     author="Dan Paulson",
     author_email="danpaulson@gmail.com",
     description="Tools for cronitor in  Django",
-    version='1.0.2',
+    version='1.0.3',
     install_requires=[
         'django',
         'cronitor',
